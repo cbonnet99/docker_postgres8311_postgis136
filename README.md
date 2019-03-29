@@ -1,8 +1,8 @@
-# Docker image for PostgreSQL 8.3.8 with PostGIS 1.3.5
+# Docker image for PostgreSQL 8.3.11 with PostGIS 1.3.6
 
 This image is very simple. It's not intended for new projects. Please use the [official postgres images](https://hub.docker.com/_/postgres/) or -- if you need postgis -- an up-to-date and well prepared implementation like the one from [mdillon](https://hub.docker.com/r/mdillon/postgis/). 
 
-The abomination in this repository creates a badly crafted docker container with terribly outdated software (Ubuntu 12.04, PostgreSQL 8.3.8, PostGIS 1.3.5, etc.). I created it to deal with very old PostGIS enabled Postgres databases. In my usecase the work necessary to port the databases to new versions would be disproportionately high. I therefore decided to craft this container with the old environment. I share it here to provide people in the same situation with a fast solution.
+The abomination in this repository creates a badly crafted docker container with terribly outdated software (Ubuntu 12.04, PostgreSQL 8.3.11, PostGIS 1.3.6, etc.). I created it to deal with very old PostGIS enabled Postgres databases. In my usecase the work necessary to port the databases to new versions would be disproportionately high. I therefore decided to craft this container with the old environment. I share it here to provide people in the same situation with a fast solution.
 
 ## Pull image from dockerhub and run container
 
