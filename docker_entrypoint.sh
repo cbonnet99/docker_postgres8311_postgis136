@@ -4,6 +4,9 @@ set -e
 #POSTGRES_USER="docker"
 #POSTGRES_PASSWORD="'docker'"
 
+chown -R postgres:postgres /usr/local/pgsql
+chmod -R 700 /usr/local/pgsql
+
 su - postgres -c "
 export PATH=$PATH:/usr/local/pgsql/bin &&\
 echo \"export PATH=$PATH:/usr/local/pgsql/bin\" >> /home/postgres/.bashrc &&\

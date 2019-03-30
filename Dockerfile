@@ -1,4 +1,4 @@
-FROM ubuntu:12.04.5
+FROM ubuntu:14.04
 
 MAINTAINER Clemens Schmid <clemens@nevrome.de>
 
@@ -15,15 +15,15 @@ RUN apt-get update && \
 		apt-get install -y build-essential libreadline-dev zlib1g-dev flex bison libxml2-dev libxslt-dev libssl-dev clang libgeos-dev wget
 
 # install postgres
-RUN	wget --no-check-certificate https://ftp.postgresql.org/pub/source/v8.3.8/postgresql-8.3.8.tar.gz && \
-		tar zxf postgresql-8.3.8.tar.gz && \
-		cd postgresql-8.3.8 && \
+RUN	wget --no-check-certificate https://ftp.postgresql.org/pub/source/v8.3.11/postgresql-8.3.11.tar.gz && \
+		tar zxf postgresql-8.3.11.tar.gz && \
+		cd postgresql-8.3.11 && \
 		./configure LDFLAGS=-lstdc++ CFLAGS="-O1" CC=clang && \
 		make && \
 		make install && \
 		cd .. && \
-		rm postgresql-8.3.8.tar.gz && \
-		rm -r postgresql-8.3.8
+		rm postgresql-8.3.11.tar.gz && \
+		rm -r postgresql-8.3.11
 
 # setup directories and variables for postgres
 RUN	mkdir /usr/local/pgsql/data && \
@@ -47,15 +47,15 @@ RUN	wget http://download.osgeo.org/proj/proj-4.6.0.tar.gz && \
 RUN	LD_LIBRARY_PATH=/usr/local/pgsql/lib:$LD_LIBRARY_PATH && \
 		export LD_LIBRARY_PATH && \
 		export PATH=/usr/local/pgsql/bin:$PATH && \
-		wget http://postgis.refractions.net/download/postgis-1.3.5.tar.gz && \
-		tar zxf postgis-1.3.5.tar.gz && \
-		cd postgis-1.3.5 && \
+		wget http://postgis.refractions.net/download/postgis-1.3.6.tar.gz && \
+		tar zxf postgis-1.3.6.tar.gz && \
+		cd postgis-1.3.6 && \
 		./configure && \
 		make && \
 		make install && \
 		cd .. && \
-		rm postgis-1.3.5.tar.gz && \
-		rm -r postgis-1.3.5
+		rm postgis-1.3.6.tar.gz && \
+		rm -r postgis-1.3.6
 
 ENV PGDATA /usr/local/pgsql/data
 
